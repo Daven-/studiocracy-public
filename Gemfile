@@ -12,6 +12,7 @@ gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '2.3.1'
 gem 'bcrypt', '3.1.10'
 gem 'compass-rails', '2.0.4'
+
 # Required for testing
 gem 'rspec'
 
@@ -57,7 +58,7 @@ end
 gem 'devise', '3.4.1'
 
 # Redcarpet: https://github.com/vmg/redcarpet
-gem 'redcarpet', '3.2.3'
+#gem 'redcarpet', '3.2.3'
 
 # Rails 12factor for Heroku: https://github.com/heroku/rails_12factor
 gem 'rails_12factor', group: :production
