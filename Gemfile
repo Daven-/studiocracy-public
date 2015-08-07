@@ -3,7 +3,7 @@ ruby '2.2.2'
 
 # Standard Rails gems
 gem 'rails', '4.2.3'
-gem 'sass-rails', '5.0.3'
+gem 'sass-rails', '5.0.1'
 gem 'uglifier', '2.7.1'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.4'
@@ -11,7 +11,7 @@ gem 'turbolinks', '2.5.3'
 gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '2.3.1'
 gem 'bcrypt', '3.1.10'
-gem 'compass-rails', '2.0.2'
+gem 'compass-rails', '2.0.4'
 # Required for testing
 gem 'rspec'
 
