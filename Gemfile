@@ -17,7 +17,7 @@ gem 'compass-rails', '2.0.4'
 gem 'rspec'
 
 #stripe
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
 
 #oauth for logging in w/ stripe, facebook
 gem 'omniauth'
