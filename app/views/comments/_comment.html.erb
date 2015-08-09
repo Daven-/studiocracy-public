@@ -1,4 +1,4 @@
-<div class="comment" id="comment-<%= comment.id %>">
+<div class="comment" id="<%= comment.id %>">
   <div class='votes'>
     <% if current_user && %>
       <% if current_user.voted_up_on? comment %>
@@ -28,5 +28,7 @@
     <p><%= comment.body %></p>
   </blockquote>
 
-  
+  <!--reply-->
+  <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
+
 </div>

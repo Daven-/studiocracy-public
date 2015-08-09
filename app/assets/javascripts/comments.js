@@ -1,21 +1,23 @@
 jQuery(function() {
-  # target comment-form from comment form partial
-  return $(".comment-form")
+  //target comment-form from comment form partial
+  $(".comment-form-div form")
     .on("ajax:beforeSend", function(evt, xhr, settings) {
-      return $(this).find('textarea')
+      return $(this).find('text_area')
       .addClass('uneditable-input')
       .attr('disabled', 'disabled');
+      console.log("FOUND IT")
     })
     .on("ajax:success", function(evt, data, status, xhr) {
-      $(this).find('textarea')
+      $(this).find('text_area')
       .removeClass('uneditable-input')
       .removeAttr('disabled', 'disabled')
       .val('');
+      console.log(xhr.responseText);
       return $(xhr.responseText).hide().insertAfter($(this)).show('slow');
     });
 
 
-  $(document)
+  /*$(document)
     .on("ajax:beforeSend", ".comment", function() {
       return $(this).fadeTo('fast', 0.5); 
     })
@@ -25,4 +27,10 @@ jQuery(function() {
     .on("ajax:error", ".comment", function() {
       return $(this).fadeTo('fast', 1);
     });
+});*/
+
+$(document).ready(function(){
+  $('.reply').click(function(){
+    $(this).parent().appendChild('<a>hi</a>')
+  });
 });

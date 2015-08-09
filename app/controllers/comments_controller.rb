@@ -26,13 +26,6 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
-  def childify
-    @parent = Comment.find(params[:id])
-    @child = params[:comment]
-    @child.move_to_child_of(@parent)
-  end
-
-
   def require_permission
     if current_user != Comment.find(params[:id]).user
       flash[:alert] = "that's not your comment"
@@ -43,12 +36,22 @@ class CommentsController < ApplicationController
   def create
     @comment_hash = params[:comment]
     @obj = @comment_hash[:commentable_type].constantize.find(@comment_hash[:commentable_id])
+    @parent_id = @comment_hash[:parent_id]
+
     @comment = Comment.build_from(@obj, current_user.id, @comment_hash[:body])
+    
     if @comment.save
-      redirect_to :back, :notice => "comment saved"
+      if @parent_id
+        # make child comment
+        @parent_comment = Comment.find(@parent_id.to_i)
+        if !@comment.move_to_child_of(@parent_comment)
+          render :js => "toastr.warning(could not make child comment)"
+        end
+      end
+      puts "TIME TO RENDER THE PARTIAL"
+      render :partial => "comments/comment", :locals => { :comment => @comment }, :layout => false, :status => :created
     else
-      flash[:alert] = "unable to save comment"
-      redirect_to :back
+      render :js => "alert('error saving comment');"
     end
   end
 
@@ -57,7 +60,7 @@ class CommentsController < ApplicationController
     if @comment.destroy
       redirect_to :back, :notice => "comment deleted"
     else
-      flash[:alert] = "error deleting comment"
+      render :js => "toastr.warning(error deleting comment)"
     end
   end
 end
