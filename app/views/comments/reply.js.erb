@@ -1,0 +1,7 @@
+/*$(document).ready(function(){
+  $('.reply-button').click(function(){
+    console.log('clicked')
+    $('#master-comment-form').clone().removeClass('id', 'master-comment-form').appendTo($(this))
+  });
+});*/
+$('#reply-form').html("<%= render :partial => 'form' %>");

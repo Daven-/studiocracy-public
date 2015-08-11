@@ -1,7 +1,6 @@
 Studiocracy::Application.routes.draw do
   root "pages#home"
   devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks", registrations: 'registrations' }
-  get "comments/reply" => "comments#reply", as: :comments_reply
   resources :charges
   resources :users
   
