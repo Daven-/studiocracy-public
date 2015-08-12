@@ -15,7 +15,6 @@ $(document).ready(function() {
                     .removeClass('uneditable-input')
                     .removeAttr('disabled', 'disabled')
                     .val('');
-                $(this).hide('slow')
                 return $(xhr.responseText).hide().insertAfter($(this)).show('slow');
             });
     });
