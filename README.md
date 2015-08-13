@@ -34,6 +34,8 @@ https://drive.google.com/folderview?id=0BxTarWOIystqflByWkkzSy1VQTNUS2xpT2JsUWlx
 * Uses devise for user authentication
 * Users paperclip 4.2.1 for media uploads
 * Uses Stripe gem. Stripe keys in file are dummy keys. Real keys will be passed into environment when server starts.
+* acts_as_commentable_with_threading for comments https://github.com/elight/acts_as_commentable_with_threading
+* acts_as_votable for votes https://github.com/ryanto/acts_as_votable
 
 # To deploy for testing
 
