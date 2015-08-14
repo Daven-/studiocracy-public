@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     if current_user.id != @user.id
       @user.admin = new_params[:admin]=="0" ? false : true
       @user.locked = new_params[:locked]=="0" ? false : true
+      @user.accepts_commissions = new_params[:accepts_commissions] == "0" ? false : true
     end
 
     if @user.valid?
@@ -59,6 +60,7 @@ class UsersController < ApplicationController
     :image,
     :password_confirmation,
     :admin,
+    :accepts_commissions,
     :locked,
     :first_name,
     :last_name,
