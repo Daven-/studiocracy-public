@@ -40,11 +40,18 @@ https://drive.google.com/folderview?id=0BxTarWOIystqflByWkkzSy1VQTNUS2xpT2JsUWlx
 # To deploy for testing
 
 * Fork and clone repository.
-* Ensure you have rails, rake, bundler, and ruby installed (look up install guide)
-* Run Postgres
-* Run rake db:migrate in command line
+* Install all dependencies (ruby, rails, postgresql, imagemagick; check install guides)
+* Start Postgres
+* Run rake db:create, rake db:schema:load, and rake db:seed
 * run rails s in folder root
 * go to http://localhost:3000/
+
+# To update from Ruby 2.2.1 to 2.2.2
+
+* Previously this project used 2.2.1; we've switched to 2.2.2 to avoid security vulnerabilities
+* Install ruby 2.2.2 with your ruby version manager of choice, and make sure you're using 2.2.2
+* Re-install rails
+* Run bundle install, and bundle update
 
 #Project Structure
 We operate similar to other companies whose core products are open-source and exist to serve the development of the project. There's studiocracy-public, our open source project that anyone can be a volunteer and work on. Studiocracy, Inc. is the entity that manages and maintains the project, hosts it, and makes sure we have the finances to continue growing it.
