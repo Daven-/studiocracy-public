@@ -81,6 +81,26 @@ devise :omniauthable
     "#{first_name} #{last_name}"
   end
 
+  def artist_karma
+#    if(self.is_artist)
+      @total = 0
+      self.posts.each do |post|
+       @total += post.netvotes
+     end
+     @total
+ #   else
+ #     "This user has not submitted any art yet"
+ #   end
+  end
+
+  def patron_karma
+    @total = 0
+    Comment.where(:user => self.id).each do |comment|
+      @total += comment.netvotes
+    end
+    @total
+  end
+
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.provider = auth.provider

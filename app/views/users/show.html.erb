@@ -1,6 +1,8 @@
       <span><%= @user.fullname %></span><br />
       <span>From <%= @user.city %>, <%= @user.state %></span><br />
       <span>Bio: <%= @user.bio %></span><br />
+      <span>Artist Karma: <%= @user.artist_karma %></span><br />
+      <span>Patron Karma: <%= @user.patron_karma %></span><br />
 
       <% @user.posts.in_groups_of(3, false).each do |group| %>
       <div class='row'>
