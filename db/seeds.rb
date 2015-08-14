@@ -6,7 +6,8 @@ u = User.new(
     email: "admin@example.com",
     password: "devPassword1",
     password_confirmation: "devPassword1",
-    admin: true
+    admin: true,
+    accepts_commissions: true
 )
 u.skip_confirmation!
 u.save!
@@ -17,7 +18,8 @@ u.save!
     password: "Password1",
     password_confirmation: "Password1",
     first_name: "user",
-    last_name: "\##{i}"
+    last_name: "\##{i}",
+    accepts_commissions: true
   )
   u.skip_confirmation!
   u.save!

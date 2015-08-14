@@ -2,7 +2,12 @@
       <span>From <%= @user.city %>, <%= @user.state %></span><br />
       <span>Bio: <%= @user.bio %></span><br />
       <span>Artist Karma: <%= @user.artist_karma %></span><br />
-      <span>Patron Karma: <%= @user.patron_karma %></span><br />
+      <span >Patron Karma: <%= @user.patron_karma %></span><br />
+      <% if @user.accepts_commissions? %>
+      <span><%= button_to "home", home_path, :class => "btn-info", :method => :get %></span><br />
+          <!--/ button should link to a commissions page with details on rate and inputs for the client to get a quote?
+                just links back to home for now.-->
+          <% end %>
 
       <% @user.posts.in_groups_of(3, false).each do |group| %>
       <div class='row'>
