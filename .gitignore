@@ -11,3 +11,4 @@ app/assets/javascripts/ajax_voting.js
 .env
 /.elasticbeanstalk
 /.elasticbeanstalk
+*.orig
