@@ -1,5 +1,40 @@
-.team_image img{
+.header{
+  color: black;
+  font-family: "Montserrat","Open Sans",Arial,Helvetica,sans-serif;
+  font-weight: 500;
+  font-size: 200%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   border-top:5px;
+}
+
+.sub-header{
+  color: black;
+  font-family: "Open Sans","Montserrat",Arial,Helvetica,sans-serif;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.paragraph{
+  color: black;
+  font-family: "Open Sans","Montserrat",Arial,Helvetica,sans-serif;
+}
+
+.julian-bio{
+  margin: auto;
+  width: 700px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.other-bios{
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  width: 700px;
+  display: flex;
 }
