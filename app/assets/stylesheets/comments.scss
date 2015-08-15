@@ -100,3 +100,46 @@ $pink-hover: #ef4d88;
 .comments-section .new_comment .actions {
   padding: 8px 0px 8px 0px;
 }
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
+}
+
+.line1 {
+  border-bottom: 1px solid black;
+
+}
+
+.margin-top-5{
+  margin-top: 5px;
+}
+.margin-top-5 a{
+  text-align: right;
+}
+.contain-margins{
+  margin-right: 24px;
+  margin-left: 24px;
+}
+.comment-text{
+  margin-right: 30px;
+}
+
+.post-by{
+  margin-right: 120px;
+}
+
+.text-body{
+  margin-left: 15px;
+}
+
+.votes{
+  margin-left: -10px;
+}
+
+.reply-button{
+  margin-left:10px;
+}

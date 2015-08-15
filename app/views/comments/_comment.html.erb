@@ -1,5 +1,7 @@
-<div class="comment" id="<%= comment.id %>">
-  <div class='votes'>
+<div class="contain-margins" id="<%= comment.id %>">
+
+  <div class="col-sm-12">
+  <div class='votes' style="margin-left: -10px;">
     <% if current_user && %>
       <% if current_user.voted_up_on? comment %>
         <%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>
@@ -16,19 +18,28 @@
       <%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
     <% end %>
   </div>
+  </div>
 
-  <%= link_to "x", comment_path(comment),
-  :method => :delete, data: { :confirm => "Are you sure you want to remove this comment?" } %>
+    <!--/  <div class="col-sm-10 margin-top-5 text-right">
+  <#%= link_to "x", comment_path(comment), :method => :delete, data: { :confirm => "Are you sure you want to remove this comment?" } %>
+  </div>   -->
 
-  <p class="post-by"> <!-- for when the other one is commented out -->
-    <%= comment.user.fullname %> on <%= l(comment.created_at, format: '%B, %d %Y') %>
-  </p>
-
-  <blockquote>
-    <p><%= comment.body %></p>
-  </blockquote>
+  <div class="col-sm-12">
+    <p class="text-body"><%= comment.body %></p>
+  </div>
 
   <!--reply-->
-  <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
+    <span>
+  <div class="col-sm-8">
+    <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
+  </div>
+  <div class="col-sm-4 text-right">
+  <p class="post-by"> <!-- for when the other one is commented out -->
+    <%= l(comment.created_at, format: '%B, %d %Y') %>
+  </p>
+  </div>
+        </span>
+    <!--/ end of reply and date of comment-->
+
 
 </div>
