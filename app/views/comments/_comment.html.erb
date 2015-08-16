@@ -34,8 +34,6 @@
   <div class="col-sm-8">
     <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
     <!--/ delete button when ready link_to will handle reply and share-->
-    <%= link_to 'reply', '#',
-                :id => comment.id, class: 'link-button'%>
     <%= link_to 'share', '#',
                 :id => comment.id, class: 'link-button'%>
   </div>
