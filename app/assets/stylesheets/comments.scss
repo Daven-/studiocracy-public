@@ -23,7 +23,7 @@ $pink-hover: #ef4d88;
 }
 
 .comments-section textarea {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .comments-section button, .comment input[type=submit] {
@@ -114,8 +114,15 @@ $pink-hover: #ef4d88;
 
 }
 
-.margin-top-5{
-  margin-top: 5px;
+#votesMargin{
+  margin-left: -10px;
+}
+
+.name-margin{
+  margin-top: -25px;
+  margin-left: 80px;
+  color: $blue;
+  font-weight: 800;
 }
 .margin-top-5 a{
   text-align: right;
@@ -132,14 +139,13 @@ $pink-hover: #ef4d88;
   margin-right: 120px;
 }
 
-.text-body{
-  margin-left: 15px;
+.body-text{
+  margin-left: 10px;
 }
 
-.votes{
-  margin-left: -10px;
-}
 
-.reply-button{
+.link-button{
+  color: $pink;
   margin-left:10px;
+  font-weight: 600;
 }

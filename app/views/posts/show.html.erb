@@ -198,6 +198,7 @@
     </div>
   </div>
 </div>
+<br>
 
 <div class="comment row comments-section">
   <% if @current_user.present? %>
@@ -205,6 +206,9 @@
   <% else %>
     <p>You must sign in to comment</p>
   <% end %>
+
   <%= render :partial => 'comments/comment', :collection => @comments, :as => :comment %>
+
 </div>
+
 </div>
