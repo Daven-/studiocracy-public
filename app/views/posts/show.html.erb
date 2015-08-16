@@ -157,7 +157,7 @@
 </div>
 
 <!--More from artist carousel-->
-<div class=" row">
+<div class="more-from-artist row">
   <!--.jcarousel JQuery Carousel Plug-in-->
   <div class="wrapper shadow">
     <div class="jcarousel-wrapper">
@@ -206,9 +206,6 @@
   <% else %>
     <p>You must sign in to comment</p>
   <% end %>
-
   <%= render :partial => 'comments/comment', :collection => @comments, :as => :comment %>
-
 </div>
-
 </div>
