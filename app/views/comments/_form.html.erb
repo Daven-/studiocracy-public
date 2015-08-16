@@ -1,12 +1,17 @@
 <div class="comment-form-div" id='master-comment-form'>
     <%= form_for(comment, remote: true) do |f| %>
-      <div class="field">
-        <%= f.text_area :body, :placeholder => "Add a comment" %>
+
+      <div class="col-sm-12">
+      <div class="field form-group">
+        <%= f.text_area :body, :placeholder => "Tell us your thoughts!", class:'form-control' %>
         <%= f.hidden_field :commentable_id, value: comment.commentable_id %>
         <%= f.hidden_field :commentable_type, value: comment.commentable_type %>
       </div>
-      <div class="actions">
-        <%= f.submit %>
+      </div>
+      <div class="col-sm-12" align="right">
+      <div class="actions form-group">
+        <%= f.submit "Submit"%>
+      </div>
       </div>
     <% end %>
 </div>
