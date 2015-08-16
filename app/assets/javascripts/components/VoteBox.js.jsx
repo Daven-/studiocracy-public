@@ -3,6 +3,12 @@
  */
 
 var VoteBox = React.createClass({
+
+    getInitialState: function() {
+        return {
+            voteCount:
+        }
+    },
    render: function() {
        return (
        <div className="voteBox">

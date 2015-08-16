@@ -2,6 +2,9 @@
 
   <div class="col-sm-12">
   <div class='votes' id="votesMargin">
+
+    <%= react_component 'VoteBox', {data: comment.netvotes} %>
+
     <% if current_user && %>
       <% if current_user.voted_up_on? comment %>
         <%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>
