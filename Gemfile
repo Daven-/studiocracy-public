@@ -95,3 +95,6 @@ gem 'mailboxer'
 
 # jQuery plug-in for selecting from lists
 gem 'chosen-rails'
+
+# ReactJS - Modular and reactive Javascript web components for Views
+gem 'react-rails'
