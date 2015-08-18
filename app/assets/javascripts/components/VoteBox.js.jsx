@@ -12,7 +12,7 @@ var VoteBox = React.createClass({
         };
     },
 
-    //On upvote, change hasUpvote state and perform AJAX PUT
+    //On upvote, change hasUpvote state
     toggleUpvote: function(){
         this.setState({
                 hasUpvote: !(this.state.hasUpvote)
@@ -24,6 +24,23 @@ var VoteBox = React.createClass({
                         hasDownvote: false
                     });
                 }
+
+                //Build AJAX request URL
+                var routeDest;
+                if(this.state.hasUpvote){
+                    routeDest = "like";
+                }
+                else{
+                    routeDest = "unlike";
+                }
+
+                var URL = "/" + this.props.votableType + "/" + this.props.parentID + "/" + routeDest;
+                console.log(URL);
+
+                $.ajax({
+                    url     : URL,
+                    type    : 'put'
+                })
             }
         );
     },
@@ -40,6 +57,24 @@ var VoteBox = React.createClass({
                         hasUpvote: false
                     });
                 }
+
+                //Build AJAX request URL
+                var routeDest;
+                if(this.state.hasUpvote){
+                    routeDest = "dislike";
+                }
+                else{
+                    routeDest = "undislike";
+                }
+
+                var URL = "/" + this.props.votableType + "/" + this.props.parentID + "/" + routeDest;
+                console.log(URL);
+
+                $.ajax({
+                    url     : URL,
+                    type    : 'put',
+                    data    : {id : this.props.parentID}
+                })
             }
         );
     },
@@ -65,7 +100,6 @@ var VoteBox = React.createClass({
                 <div className={downvoteClasses} onClick={this.toggleDownvote}>
                     ▼
                 </div>;
-
 
             //Recalculates votecount based on states
             var calculatedVoteCount = this.props.initialVoteCount;

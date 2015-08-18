@@ -4,28 +4,17 @@
   <div class='votes' id="votesMargin">
 
     <% @netvotes = comment.netvotes %>
+
     <%= react_component 'VoteBox',
                         {initialVoteCount: @netvotes,
                          parentID: comment.id,
                          initialHasUpvote: (current_user.voted_up_on? comment),
                          initialHasDownvote: (current_user.voted_down_on? comment),
-                         hasDownvoteButton: true
+                         hasDownvoteButton: true,
+                         votableType: "comments"
                         }
     %>
 
-      <!--<% if current_user.voted_up_on? comment %>-->
-          <!--<%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>-->
-          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
-          <!--<%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method=> :put %>-->
-      <!--<% elsif current_user.voted_down_on? comment %>-->
-          <!--<%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
-          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
-          <!--<%= link_to '▼', undislike_comment_path(comment), :class => 'downvote', :id => "downvote-#{comment.id}", :method => :put %>-->
-      <!--<% else %>-->
-          <!--<%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
-          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
-          <!--<%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
-      <!--<% end %>-->
     </div>
     <img src="images/icon-play32.png" style="margin-top: 30px;">
     <p class="name-margin"><%= comment.user.fullname %></p>
