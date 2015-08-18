@@ -3,13 +3,16 @@
 
       <div class="col-sm-12">
       <div class="field form-group">
-        <%= f.text_area :body, :placeholder => "Tell us your thoughts!", class:'form-control' %>
+        <%= f.text_area :body, :placeholder => "Tell us your thoughts!", class:'form-control', maxlength: 100 %>
         <%= f.hidden_field :commentable_id, value: comment.commentable_id %>
         <%= f.hidden_field :commentable_type, value: comment.commentable_type %>
       </div>
       </div>
-      <div class="col-sm-12" align="right">
-      <div class="actions form-group">
+      <div class="col-sm-6 float-left" >
+        <p id="remaining">characters remaining: </p>
+        </div>
+        <div class="col-sm-6 float-right" >
+      <div class="actions form-group" align="right" id="submit-margin">
         <%= f.submit "Submit"%>
       </div>
       </div>

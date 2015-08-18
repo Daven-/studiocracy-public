@@ -74,3 +74,37 @@ $blue: #22adc2;
 #readOnlyTags{
   border:0px !important;
 }
+
+.content-divider{
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 8px auto;
+  height: 0;
+  width: 92%;
+  max-height: 0;
+  font-size: 1px;
+  line-height: 0;
+  clear: both;
+  border: none;
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 1px solid #ffffff;
+}
+
+.img-comment{
+  margin-top: 20px;
+}
+
+#comment-margin{
+  margin-left: 7%;
+}
+#sort-margin{
+  margin-right: 7%;
+}
+#submit-margin{
+  margin-top: -9px;
+}
+#remaining{
+  font-size: small;
+  margin-left: 1%;
+}

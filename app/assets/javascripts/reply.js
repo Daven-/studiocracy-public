@@ -12,6 +12,14 @@ $(document).ready(function(){
               $(this).data('activated', true)
           }
     });
+
+    function reply(){
+        alert("hello");
+        // same functionality as above should go here
+        // called from comments/_comments.html.erb to reply to comments
+    }
+
+
   
   /*$(".comment-form-div")
     .on("ajax:beforeSend", function(evt, xhr, settings) {
