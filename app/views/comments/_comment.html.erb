@@ -1,33 +1,39 @@
-<div class="contain-margins" id="<%= comment.id %>">
+<div class="contain-margins comment" id="<%= comment.id %>">
 
   <div class="col-sm-12">
   <div class='votes' id="votesMargin">
 
-    <%= react_component 'VoteBox', {data: comment.netvotes} %>
+    <% @netvotes = comment.netvotes %>
+    <%= react_component 'VoteBox',
+                        {initialVoteCount: @netvotes,
+                         parentID: comment.id,
+                         initialHasUpvote: (current_user.voted_up_on? comment),
+                         initialHasDownvote: (current_user.voted_down_on? comment),
+                         hasDownvoteButton: true
+                        }
+    %>
 
-    <% if current_user && %>
-      <% if current_user.voted_up_on? comment %>
-        <%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>
-        <div class='num_votes'><%= comment.netvotes %></div>
-        <%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method=> :put %>
-      <% elsif current_user.voted_down_on? comment %>
-        <%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
-        <div class='num_votes'><%= comment.netvotes %></div>
-        <%= link_to '▼', undislike_comment_path(comment), :class => 'downvote', :id => "downvote-#{comment.id}", :method => :put %>
-      <% end %>
-    <% else %>
-      <%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
-      <div class='num_votes'><%= comment.netvotes %></div>
-      <%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
-    <% end %>
-  </div>
+      <!--<% if current_user.voted_up_on? comment %>-->
+          <!--<%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>-->
+          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
+          <!--<%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method=> :put %>-->
+      <!--<% elsif current_user.voted_down_on? comment %>-->
+          <!--<%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
+          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
+          <!--<%= link_to '▼', undislike_comment_path(comment), :class => 'downvote', :id => "downvote-#{comment.id}", :method => :put %>-->
+      <!--<% else %>-->
+          <!--<%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
+          <!--<div class='num_votes'><%= comment.netvotes %></div>-->
+          <!--<%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>-->
+      <!--<% end %>-->
+    </div>
     <img src="images/icon-play32.png" style="margin-top: 30px;">
     <p class="name-margin"><%= comment.user.fullname %></p>
   </div>
 
-    <!--/  <div class="col-sm-10 margin-top-5 text-right">
-  <#%= link_to "x", comment_path(comment), :method => :delete, data: { :confirm => "Are you sure you want to remove this comment?" } %>
-  </div>   -->
+  <!--/  <div class="col-sm-10 margin-top-5 text-right">
+<#%= link_to "x", comment_path(comment), :method => :delete, data: { :confirm => "Are you sure you want to remove this comment?" } %>
+</div>   -->
   <!--/ looks like delete functionis not in the final design-->
 
   <div class="col-sm-12">
@@ -40,17 +46,17 @@
     <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
     <!--/ delete button when ready link_to will handle reply and share-->
     <%= link_to 'reply', '#',
-    :id => comment.id, class: 'link-button'%>
+                :id => comment.id, class: 'link-button'%>
     <%= link_to 'share', '#',
                 :id => comment.id, class: 'link-button'%>
   </div>
   <div class="col-sm-4 text-right">
-  <p align="bottom"> <!-- for when the other one is commented out -->
-    <%= l(comment.created_at, format: '%B, %d %Y') %>
-  </p>
+    <p align="bottom"> <!-- for when the other one is commented out -->
+      <%= l(comment.created_at, format: '%B, %d %Y') %>
+    </p>
   </div>
         </span>
-    <!--/ end of reply and date of comment-->
+  <!--/ end of reply and date of comment-->
 
 
 </div>

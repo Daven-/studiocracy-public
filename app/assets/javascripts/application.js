@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require react
-//= require react_ujs
-//= require components
 
 //= require angular/angular.min
 //= require angular/angular-route.min
@@ -34,7 +31,13 @@
 //= require jquery.contenthover
 //= require overlay
 //= require tag-it.min
+//= require classNames.js
+
+//= require react
+//= require react_ujs
+//= require components
 
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
+
 //= require turbolinks

@@ -3,7 +3,7 @@ $(document).ready(function(){
     .on('click', '.reply-button', function(){
           //Check if the box is already active
           if (!$(this).data('activated')){
-              var parent_id = $(this).parent('.comment').attr('id')
+              var parent_id = $(this).parents('.comment').attr('id')
               //Hidden field for comment parent ID
               var parent_id_field = "<input value='" + parent_id + "' type='hidden' name='comment[parent_id]'' id='comment_parent_id'>"
               $(this).replaceWith($('#master-comment-form').clone().attr('id', "reply-div-" + parent_id).show(0))
