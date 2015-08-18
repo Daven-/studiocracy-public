@@ -1,28 +1,22 @@
-jQuery(function() {
-  # target comment-form from comment form partial
-  return $(".comment-form")
-    .on("ajax:beforeSend", function(evt, xhr, settings) {
-      return $(this).find('textarea')
-      .addClass('uneditable-input')
-      .attr('disabled', 'disabled');
-    })
-    .on("ajax:success", function(evt, data, status, xhr) {
-      $(this).find('textarea')
-      .removeClass('uneditable-input')
-      .removeAttr('disabled', 'disabled')
-      .val('');
-      return $(xhr.responseText).hide().insertAfter($(this)).show('slow');
-    });
+$(document).ready(function() {
+    jQuery(function () {
+        //target comment-form from comment form partial
+        $(document)
+            .on("ajax:beforeSend", '.comment-form-div', function (evt, xhr, settings) {
+                console.log("Ajax request sent")
+                return $(this).find('text_area')
+                    .addClass('uneditable-input')
+                    .attr('disabled', 'disabled');
+            })
+            .on("ajax:success", '.comment-form-div', function (evt, data, status, xhr) {
+                console.log("Ajax request successful")
 
-
-  $(document)
-    .on("ajax:beforeSend", ".comment", function() {
-      return $(this).fadeTo('fast', 0.5); 
-    })
-    .on("ajax:success", ".comment", function() {
-      return $(this).hide('fast');
-    })
-    .on("ajax:error", ".comment", function() {
-      return $(this).fadeTo('fast', 1);
+                $(this).find('text_area')
+                    .removeClass('uneditable-input')
+                    .removeAttr('disabled', 'disabled')
+                    .val('');
+                $(this).hide('slow')
+                return $(xhr.responseText).hide().insertAfter($(this)).show('slow');
+            });
     });
 });
