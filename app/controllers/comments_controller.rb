@@ -5,31 +5,27 @@ class CommentsController < ApplicationController
   def like
     @comment = Comment.find(params[:id])
     @comment.liked_by current_user
-    redirect_to :back
+    render :js => "toastr.success('Vote received!')"
   end
 
   def unlike
     @comment = Comment.find(params[:id])
     @comment.unliked_by current_user
-    redirect_to :back
-  end
+    render :js => "toastr.success('Vote received!')"  end
   
   def dislike
     @comment = Comment.find(params[:id])
     @comment.disliked_by current_user
-    redirect_to :back
-  end
+    render :js => "toastr.success('Vote received!')"  end
 
   def undislike
     @comment = Comment.find(params[:id])
     @comment.undisliked_by current_user
-    redirect_to :back
-  end
+    render :js => "toastr.success('Vote received!')"  end
 
   def require_permission
     if current_user != Comment.find(params[:id]).user
       flash[:alert] = "that's not your comment"
-      redirect_to :back
     end
   end
 
@@ -58,9 +54,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      redirect_to :back, :notice => "comment deleted"
+      render :js => "toastr.warning('Comment deleted')"
     else
-      render :js => "toastr.warning(error deleting comment)"
+      render :js => "toastr.warning('error deleting comment')"
     end
   end
 end
