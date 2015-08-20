@@ -39,7 +39,10 @@ var VoteBox = React.createClass({
 
                 $.ajax({
                     url     : URL,
-                    type    : 'put'
+                    type    : 'put',
+                    error: function(){
+                        toastr.warning('Vote could not be submitted.');
+                    }
                 })
             }
         );
@@ -73,7 +76,10 @@ var VoteBox = React.createClass({
                 $.ajax({
                     url     : URL,
                     type    : 'put',
-                    data    : {id : this.props.parentID}
+                    data    : {id : this.props.parentID},
+                    error: function(){
+                        toastr.warning('Vote could not be submitted.');
+                    }
                 })
             }
         );
