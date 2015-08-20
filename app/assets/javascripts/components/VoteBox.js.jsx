@@ -39,7 +39,10 @@ var VoteBox = React.createClass({
 
                 $.ajax({
                     url     : URL,
-                    type    : 'put'
+                    type    : 'put',
+                    error: function(){
+                        toastr.warning('Vote could not be submitted.');
+                    }
                 })
             }
         );
@@ -73,7 +76,10 @@ var VoteBox = React.createClass({
                 $.ajax({
                     url     : URL,
                     type    : 'put',
-                    data    : {id : this.props.parentID}
+                    data    : {id : this.props.parentID},
+                    error: function(){
+                        toastr.warning('Vote could not be submitted.');
+                    }
                 })
             }
         );
@@ -108,6 +114,15 @@ var VoteBox = React.createClass({
             }
             if (this.state.hasDownvote){
                 calculatedVoteCount -= 1;
+            }
+
+            //Need to adjust for any votes the user made when pages was loaded
+            //Otherwise upvotes will be double-counted
+            if (this.props.initialHasUpvote){
+                calculatedVoteCount -= 1;
+            }
+            if (this.props.initialHasDownvote){
+                calculatedVoteCount += 1;
             }
         }
 

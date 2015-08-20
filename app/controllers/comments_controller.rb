@@ -5,23 +5,26 @@ class CommentsController < ApplicationController
   def like
     @comment = Comment.find(params[:id])
     @comment.liked_by current_user
-    render :js => "toastr.success('Vote received!')"
+    render nothing: true
   end
 
   def unlike
     @comment = Comment.find(params[:id])
     @comment.unliked_by current_user
-    render :js => "toastr.success('Vote received!')"  end
-  
+    render nothing: true
+  end
+
   def dislike
     @comment = Comment.find(params[:id])
     @comment.disliked_by current_user
-    render :js => "toastr.success('Vote received!')"  end
+    render nothing: true
+  end
 
   def undislike
     @comment = Comment.find(params[:id])
     @comment.undisliked_by current_user
-    render :js => "toastr.success('Vote received!')"  end
+    render nothing: true
+  end
 
   def require_permission
     if current_user != Comment.find(params[:id]).user
