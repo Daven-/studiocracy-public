@@ -109,6 +109,15 @@ var VoteBox = React.createClass({
             if (this.state.hasDownvote){
                 calculatedVoteCount -= 1;
             }
+
+            //Need to adjust for any votes the user made when pages was loaded
+            //Otherwise upvotes will be double-counted
+            if (this.props.initialHasUpvote){
+                calculatedVoteCount -= 1;
+            }
+            if (this.props.initialHasDownvote){
+                calculatedVoteCount += 1;
+            }
         }
 
         return (
