@@ -37,7 +37,7 @@
 
   #about-us {
     padding-bottom: 20px;
-    background: #f2f2f2;
+    background: #ffffff;
   }
 
   #news {
@@ -72,6 +72,12 @@
     margin-top: 60px;
     padding: auto;
     p {text-align: right;}
+    img {
+      margin:auto;
+      -webkit-border-radius: 100%; /* Saf3+, Chrome */
+      border-radius: 100%; /* Opera 10.5, IE 9 */
+      border: 2px solid #e2f3f7;
+    }
   }
 
   #other-bios {
@@ -81,5 +87,6 @@
   #contributors {
     background: #f2f2f2;
     margin-bottom: 0px;
+    padding-bottom: 30px;
   }
 }
