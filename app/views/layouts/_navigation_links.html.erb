@@ -7,7 +7,7 @@
     <li><%= link_to "log in", new_user_session_path %></li>
     <li><%= link_to "FAQ" %></li>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
+      <a href="#" class="dropdown-toggle btn btn-elipsis" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
       <ul class="dropdown-menu" id="left-side">
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "our team", our_team_path %></div></div></li>
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "terms", terms_path %></div></div></li>
@@ -17,7 +17,10 @@
     </li>
     <% else %>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">/profile-here/</a>
+      <a href="#" class="dropdown-toggle btn btn-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.artist_karma.to_s + " [profile-pic-not-implemented] " + current_user.first_name + " " + current_user.last_name%>
+        <span class="caret"></span>
+      </a>
       <ul class="dropdown-menu" id="left-side">
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "profile", user_path(current_user) %></div></div></li>
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "dashboard" %></div></div></li>
@@ -25,15 +28,17 @@
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "sign out", destroy_user_session_path, data:{method: :delete} %></div></div></li>
       </ul>
     </li>
-    <li><%= link_to "/submit art/", new_post_path %></li>
-    <li><%= link_to "/messages/", mailbox_inbox_path %></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
+    <li><%= link_to "", class: "btn btn-plus" do %>
+        <i class="glyphicon glyphicon-plus"></i><% end %></li>
+    <li><%= link_to "", class: "btn btn-envelope" do %>
+        <i class="glyphicon glyphicon-envelope"></i><% end %></li>
+    <li class="dropdown" id="right-side">
+      <a href="#" class="dropdown-toggle btn btn-elipsis" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
       <ul class="dropdown-menu" id="right-side">
-        <li><div class="row"><div id="text"><%= link_to "our team", our_team_path %></div></div></li>
-        <li><div class="row"><div id="text"><%= link_to "terms", terms_path %></div></div></li>
-        <li><div class="row"><div id="text"><%= link_to "privacy", privacy_path %></div></div></li>
-        <li><div class="row"><div id="text"><%= link_to "contact us", contact_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "our team", our_team_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "terms", terms_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "privacy", privacy_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "contact us", contact_path %></div></div></li>
       </ul>
     </li>
     <% end %>
