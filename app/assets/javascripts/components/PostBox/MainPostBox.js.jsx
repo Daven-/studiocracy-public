@@ -3,7 +3,6 @@
  *
  * MainPostBox is a repeated component featuring a post's image, upvote count, title, price, comments, and poster.
  * It takes in the following parameters to build smaller components:
- * postID (String) -- the ID of the parent post the box represents
  * imageSource (String) -- the URL source for the post's main image
  * postTitle (String) -- The title of the post
  * postPrice (String) -- The price of the post formatted as a currency string
@@ -16,7 +15,7 @@
 var MainPostBox = React.createClass({
 
     propTypes: {
-        postID: React.PropTypes.string.isRequired,
+        parentID: React.PropTypes.number.isRequired,
 
         // PostBoxImage
         imageSource: React.PropTypes.string.isRequired,
@@ -24,7 +23,7 @@ var MainPostBox = React.createClass({
         // PostInfo
         postTitle: React.PropTypes.string.isRequired,
         postPrice: React.PropTypes.string,
-        postCommentsCount: React.PropTypes.number.isRequired,
+        postCommentsCount: React.PropTypes.string.isRequired,
 
         // UserBar
         userThumbSrc: React.PropTypes.string,
@@ -35,25 +34,35 @@ var MainPostBox = React.createClass({
         initialHasUpvote: React.PropTypes.bool.isRequired,
         initialHasDownvote: React.PropTypes.bool.isRequired,
         votableType: React.PropTypes.string.isRequired,
-        parentID: React.PropTypes.string.isRequired,
         hasDownvoteButton: React.PropTypes.bool
     },
 
-    //Set initial states from props
-    getInitialState: function() {
-        return {
-        };
-    },
-
-
     render: function() {
+        var postboxID = 'postbox-id-' + this.props.parentID;
 
         return (
-            <div className="main-post-box">
-                < PostBoxImage />
-                < VoteBox />
-                < PostInfo />
-                < UserBar />
+            <div className="main-post-box" id={postboxID}>
+                < PostBoxImage
+                    parentID = {this.props.parentID}
+                    imageSource = {this.props.imageSource}
+                    />
+                < VoteBox
+                    parentID = {this.props.parentID}
+                    initialVoteCount= {this.props.initialVoteCount}
+                    initialHasUpvote= {this.props.initialHasUpvote}
+                    initialHasDownvote= {this.props.initialHasDownvote}
+                    votableType= {this.props.votableType}
+                    hasDownvoteButton= {this.props.hasDownvoteButton}
+                    />
+                < PostInfo
+                    postTitle = {this.props.postTitle}
+                    postPrice = {this.props.postPrice}
+                    postCommentsCount = {this.props.postCommentsCount}
+                    />
+                < UserBar
+                    userThumbSrc = {this.props.userThumbSrc}
+                    userName = {this.props.userName}
+                    />
             </div>
         );
     }

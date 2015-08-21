@@ -9,7 +9,7 @@ var VoteBox = React.createClass({
         initialHasUpvote: React.PropTypes.bool.isRequired,
         initialHasDownvote: React.PropTypes.bool.isRequired,
         votableType: React.PropTypes.string.isRequired,
-        parentID: React.PropTypes.string.isRequired,
+        parentID: React.PropTypes.number.isRequired,
         hasDownvoteButton: React.PropTypes.bool
     },
 
@@ -96,6 +96,8 @@ var VoteBox = React.createClass({
 
     render: function() {
 
+        var calculatedVoteCount = this.props.initialVoteCount;
+
         //classNames addon for setting classes
         var upvoteClasses = classNames ({
             'upvote':this.state.hasUpvote,
@@ -117,7 +119,6 @@ var VoteBox = React.createClass({
                 </div>;
 
             //Recalculates votecount based on states
-            var calculatedVoteCount = this.props.initialVoteCount;
             if (this.state.hasUpvote){
                 calculatedVoteCount += 1;
             }
