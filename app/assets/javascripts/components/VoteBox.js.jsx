@@ -4,6 +4,15 @@
 
 var VoteBox = React.createClass({
 
+    propTypes: {
+        initialVoteCount: React.PropTypes.number.isRequired,
+        initialHasUpvote: React.PropTypes.bool.isRequired,
+        initialHasDownvote: React.PropTypes.bool.isRequired,
+        votableType: React.PropTypes.string.isRequired,
+        parentID: React.PropTypes.string.isRequired,
+        hasDownvoteButton: React.PropTypes.bool
+    },
+
     //Set initial states from props
     getInitialState: function() {
         return {
