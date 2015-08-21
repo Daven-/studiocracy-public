@@ -96,8 +96,6 @@ var VoteBox = React.createClass({
 
     render: function() {
 
-        var calculatedVoteCount = this.props.initialVoteCount;
-
         //classNames addon for setting classes
         var upvoteClasses = classNames ({
             'upvote':this.state.hasUpvote,
@@ -108,32 +106,34 @@ var VoteBox = React.createClass({
         if (this.props.hasDownvoteButton) {
 
             //classNames addon for setting classes
-            var downvoteClasses = classNames ({
-                'downvote':this.state.hasDownvote,
-                'nullvote':!(this.state.hasDownvote)
+            var downvoteClasses = classNames({
+                'downvote': this.state.hasDownvote,
+                'nullvote': !(this.state.hasDownvote)
             });
 
             var downvoteButton =
                 <div className={downvoteClasses} onClick={this.toggleDownvote}>
                     ▼
                 </div>;
+        }
 
-            //Recalculates votecount based on states
-            if (this.state.hasUpvote){
-                calculatedVoteCount += 1;
-            }
-            if (this.state.hasDownvote){
-                calculatedVoteCount -= 1;
-            }
+        var calculatedVoteCount = this.props.initialVoteCount;
 
-            //Need to adjust for any votes the user made when pages was loaded
-            //Otherwise upvotes will be double-counted
-            if (this.props.initialHasUpvote){
-                calculatedVoteCount -= 1;
-            }
-            if (this.props.initialHasDownvote){
-                calculatedVoteCount += 1;
-            }
+        //Recalculates votecount based on states
+        if (this.state.hasUpvote){
+            calculatedVoteCount += 1;
+        }
+        if (this.state.hasDownvote){
+            calculatedVoteCount -= 1;
+        }
+
+        //Need to adjust for any votes the user made when pages was loaded
+        //Otherwise upvotes will be double-counted
+        if (this.props.initialHasUpvote){
+            calculatedVoteCount -= 1;
+        }
+        if (this.props.initialHasDownvote){
+            calculatedVoteCount += 1;
         }
 
         return (
