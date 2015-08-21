@@ -28,9 +28,9 @@
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "sign out", destroy_user_session_path, data:{method: :delete} %></div></div></li>
       </ul>
     </li>
-    <li><%= link_to "", class: "btn btn-plus" do %>
+    <li><%= link_to new_post_path, class: "btn btn-plus" do %>
         <i class="glyphicon glyphicon-plus"></i><% end %></li>
-    <li><%= link_to "", class: "btn btn-envelope" do %>
+    <li><%= link_to mailbox_inbox_path, class: "btn btn-envelope" do %>
         <i class="glyphicon glyphicon-envelope"></i><% end %></li>
     <li class="dropdown" id="right-side">
       <a href="#" class="dropdown-toggle btn btn-elipsis" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
