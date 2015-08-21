@@ -352,95 +352,79 @@
 <!-- =========================
    Send Message
 ============================== -->
-<section id="send-message" class="send-message main-bg white-color text-center">
-<!--     <a href="#" data-toggle="modal" data-target="#contact-form">
-        <div class="send-icon">
-            <i class="fa fa-paper-plane"></i>
-        </div>
-        <p class="light-text">Any <span class="bold-text">questions</span>? Send a <span
-                class="bold-text">message</span>.</p>
-    </a> -->
+<!--<section id="send-message" class="send-message main-bg white-color text-center">-->
+    <!--<a href="#" data-toggle="modal" data-target="#contact-form">-->
+        <!--<div class="send-icon">-->
+            <!--<i class="fa fa-paper-plane"></i>-->
+        <!--</div>-->
+        <!--<p class="light-text">Any <span class="bold-text">questions</span>? Send a <span-->
+                <!--class="bold-text">message</span>.</p>-->
+    <!--</a>-->
 
-    <!-- Contact Form Modal -->
-    <div class="modal fade contact-form" id="contact-form" tabindex="-1" role="dialog" aria-labelledby="contact-form"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <div class="modal-body">
-                    <form class="contact_form" name="contactform" method="post" action="http://www.studiocracy.com/public_html/php/mailer.php">
-                        <table>
-                            <tr>
-                                <td valign="top">
-                                    <label for="first_name" id="fname">First Name *</label>
-                                </td>
-                                <td valign="top">
-                                    <input type="text" name="first_name" maxlength="50" size="30">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top"
-                                <label for="last_name">Last Name *</label>
-                                </td>
-                                <td valign="top">
-                                    <input id="lname" type="text" name="last_name" maxlength="50" size="30">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top">
-                                    <label for="email">Email Address *</label>
-                                </td>
-                                <td valign="top">
-                                    <input id="email" type="text" name="email" maxlength="80" size="30">
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td valign="top">
-
-                                    <label for="comments">Comments *</label>
-
-                                </td>
-
-                                <td valign="top">
-
-                                    <textarea id='comments' name="comments" maxlength="1000" cols="25" rows="6"></textarea>
-
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td valign="top">
-
-
-                                </td>
-
-                                <td valign="top">
-
-                                    <a id ="submit-comments" href="mailer.php">Email Form</a>
-
-                                </td>
-
-                            </tr>
-
-                        </table>
-
-                    </form>
-                    <!-- *****  Contact form ***** -->
-                </div>
-            </div>
-            <!-- *** end modal-body *** -->
-        </div>
-        <!-- *** end modal-content *** -->
-    </div>
-    <!-- *** end modal-dialog *** -->
-    </div>
-    <!-- *** end Contact Form modal *** -->
-</section>
+    <!--&lt;!&ndash; Contact Form Modal &ndash;&gt;-->
+    <!--<div class="modal fade contact-form" id="contact-form" tabindex="-1" role="dialog" aria-labelledby="contact-form"-->
+         <!--aria-hidden="true">-->
+        <!--<div class="modal-dialog modal-lg">-->
+            <!--<div class="modal-content">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--<span aria-hidden="true">×</span>-->
+                <!--</button>-->
+                <!--<div class="modal-body">-->
+                    <!--<form class="contact_form" name="contactform" method="post"-->
+                          <!--action="http://www.studiocracy.com/public_html/php/mailer.php">-->
+                        <!--<table>-->
+                            <!--<tr>-->
+                                <!--<td valign="top">-->
+                                    <!--<label for="first_name" id="fname">First Name *</label>-->
+                                <!--</td>-->
+                                <!--<td valign="top">-->
+                                    <!--<input type="text" name="first_name" maxlength="50" size="30">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td valign="top">-->
+                                    <!--<label for="last_name" id="lname">Last Name *</label>-->
+                                <!--</td>-->
+                                <!--<td valign="top">-->
+                                    <!--<input id="lname" type="text" name="last_name" maxlength="50" size="30">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td valign="top">-->
+                                    <!--<label for="email">Email Address *</label>-->
+                                <!--</td>-->
+                                <!--<td valign="top">-->
+                                    <!--<input id="email" type="text" name="email" maxlength="80" size="30">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td valign="top">-->
+                                    <!--<label for="comments">Comments *</label>-->
+                                <!--</td>-->
+                                <!--<td valign="top">-->
+                                    <!--<textarea id='comments' name="comments" maxlength="1000" cols="25" rows="6"></textarea>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td valign="top">-->
+                                <!--</td>-->
+                                <!--<td valign="top">-->
+                                    <!--<button id ="submit-comments" href="mailer.php">Send Email</button>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                    <!--</form>-->
+                    <!--&lt;!&ndash; *****  Contact form ***** &ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; *** end modal-body *** &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; *** end modal-content *** &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; *** end modal-dialog *** &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; *** end Contact Form modal *** &ndash;&gt;-->
+<!--</section>-->
 <!-- *** end Send Message *** -->
 
 
