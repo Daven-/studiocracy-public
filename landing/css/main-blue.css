@@ -1287,3 +1287,110 @@ header p{
     zoom: 0.5;
   }
 }
+
+/*More about us*/
+
+
+.more-about-us .header {
+  color: black;
+  font-family: "Campton Light", sans-serif;
+  font-weight: 500;
+  font-size: 200%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 5px;
+}
+
+.more-about-us .sub-header {
+  color: black;
+  font-family: "Campton Light", sans-serif;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 10px;
+}
+.sub-header p
+{margin-bottom: 0px;
+}
+
+.more-about-us .centered{
+  text-align: center;
+}
+
+.more-about-us #our-team-banner {
+  justify-content: center;
+  display: flex;
+  background-image:url(about-us-banner.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height:300px;
+}
+
+.more-about-us #about-us {
+  padding-bottom: 20px;
+  background: #ffffff;
+}
+
+.more-about-us #news {
+  background: #ffffff;
+}
+.more-about-us #news img {
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.more-about-us #news .container-fluid {
+  max-width: 700px;
+}
+
+.more-about-us #sponsors {
+  background: #f2f2f2;
+  padding-bottom: 30px;
+}
+
+.more-about-us #sponsors .container-fluid {
+  max-width: 700px;
+}
+
+.more-about-us #our-team {
+  padding-bottom: 90px;
+  background: #ffffff;
+}
+
+.more-about-us #julian-bio {
+  display: flex;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 80px;
+  margin-top: 60px;
+  padding: auto;
+}
+
+#julian-bio p {text-align: right;}
+#julian-bio img {
+  margin:auto;
+  -webkit-border-radius: 100%; /* Saf3+, Chrome */
+  border-radius: 100%; /* Opera 10.5, IE 9 */
+  border: 2px solid #e2f3f7;
+}
+
+.more-about-us #other-bios img{
+  margin:auto;
+  -webkit-border-radius: 100%; /* Saf3+, Chrome */
+  border-radius: 100%; /* Opera 10.5, IE 9 */
+  border: 2px solid #e2f3f7;
+  height: 218px;
+  width: 218px;
+}
+
+.more-about-us #contributors {
+  background: #22adc2;
+  margin-bottom: 0px;
+  padding-bottom: 30px;
+  color:white;
+}
+
+.more-about-us #contributors .header {
+  color:white;
+}
