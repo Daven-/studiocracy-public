@@ -16,10 +16,18 @@
       </ul>
     </li>
     <% else %>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle btn btn-profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <%= current_user.artist_karma.to_s + " [profile-pic-not-implemented] " + current_user.first_name + " " + current_user.last_name%>
-        <span class="caret"></span>
+    <li class="dropdown" id="profile-row">
+      <a href="#" class="dropdown-toggle btn btn-profile btn-block row" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <div class="col-md-1" id="karma">
+        <%= current_user.artist_karma.to_s %>
+            </div>
+            <div class="col-md-1" id="picture">
+          <%= image_tag(current_user.image.url) %>
+              </div>
+              <div class="col-md-1" id="name">
+          <%= current_user.first_name + " " + current_user.last_name %>
+          </div>
+                <div class="caret"></div>
       </a>
       <ul class="dropdown-menu" id="left-side">
         <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "profile", user_path(current_user) %></div></div></li>

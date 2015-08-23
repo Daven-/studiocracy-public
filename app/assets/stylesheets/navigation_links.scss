@@ -47,8 +47,10 @@
   }
   .btn-profile {
     font-size: 20px;
-    padding: 8px 10px;
     margin: 0px;
+    padding: 0px;
+    max-width: 350px;
+    max-height: 40px;
     background-color: #444444;
     border-color: #444444;
     color: #ffffff;
@@ -61,6 +63,33 @@
   #square-logo {
     float:left;
     margin-top: 2px;
+  }
+  #profile-row{
+    padding: auto;
+    max-width: 300px;
+    max-height: 40px;
+    .container {
+      max-width: 20px;
+      max-height: 30px;
+    }
+    #karma {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    #picture {
+      width: 12%;
+      height: 12%;
+      padding: 0px;
+      margin: 0;
+    }
+    #name {
+      padding-left: 2px;
+      margin-top: 10px;
+      margin-right: 15px;
+    }
+    .caret {
+      margin-top: 3px;
+    }
   }
   .dropdown #left-side {
     width: 200px;
