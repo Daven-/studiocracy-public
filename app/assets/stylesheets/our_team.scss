@@ -81,7 +81,14 @@
   }
 
   #other-bios {
-    max-width: 850px;
+    img {
+      margin:auto;
+      -webkit-border-radius: 100%; /* Saf3+, Chrome */
+      border-radius: 100%; /* Opera 10.5, IE 9 */
+      border: 2px solid #e2f3f7;
+      height: 218px;
+      width: 218px;
+    }
   }
 
   #contributors {
