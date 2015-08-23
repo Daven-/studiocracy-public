@@ -1,40 +1,54 @@
 <!--<li><%= link_to "Contact", contact_path %></li>-->
 
-<% if !user_signed_in? %>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Sign In", new_user_session_path %></li>
-    <li><%= link_to "Join", new_user_registration_path %></li>
-<% else %>
-<!-- <li><%= link_to "Protected Page", inside_path %></li> -->
-<li><%= link_to "Submit Art", new_post_path %></li>
-<!--<%= image_tag(current_user.image.url(:small)) %>-->
-<li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-      <%= current_user.fullname %>
-      <span class="caret"></span>
-    </a>
-	<ul class="dropdown-menu" role="menu">
-      <li><%= link_to "My Profile", user_path(current_user) %> </li>
-      <li><%= link_to "My Messages", mailbox_inbox_path %> </li>
-      <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-      <li><a href="#">Account Settings</a></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path, data:{method: :delete} %></li>
-	</ul>
-</li>
-
-<% if current_user.admin? %>
-<li><%= link_to "Admin", admin_root_path %></li>
-<% end %>
-<% end %>
-<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Our Team", our_team_path %></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Media</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Terms", terms_path %></li>
-			<li><%= link_to "Privacy", privacy_path %></li>
-            <li><%= link_to "Contact Us", contact_path %></li>
-          </ul>
-</li>
+<div id="navigation_links">
+  <ul class="nav navbar-nav navbar-right">
+    <% if !user_signed_in? %>
+    <li><%= link_to "sign up", new_user_registration_path %></li>
+    <li><%= link_to "log in", new_user_session_path %></li>
+    <li><%= link_to "FAQ" %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle btn btn-elipsis" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
+      <ul class="dropdown-menu" id="left-side">
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "our team", our_team_path %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "terms", terms_path %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "privacy", privacy_path %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "contact us", contact_path %></div></div></li>
+      </ul>
+    </li>
+    <% else %>
+    <li class="dropdown" id="profile-row">
+      <a href="#" class="dropdown-toggle btn btn-profile btn-block row" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <div class="col-md-1" id="karma">
+        <%= current_user.artist_karma.to_s %>
+            </div>
+            <div class="col-md-1" id="picture">
+          <%= image_tag(current_user.image.url) %>
+              </div>
+              <div class="col-md-1" id="name">
+          <%= current_user.first_name + " " + current_user.last_name %>
+          </div>
+                <div class="caret"></div>
+      </a>
+      <ul class="dropdown-menu" id="left-side">
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "profile", user_path(current_user) %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "dashboard" %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "account settings" %></div></div></li>
+        <li><div class="row"><img id="square-logo" src="assets/grey-square.png"><div id="text"><%= link_to "sign out", destroy_user_session_path, data:{method: :delete} %></div></div></li>
+      </ul>
+    </li>
+    <li><%= link_to new_post_path, class: "btn btn-plus" do %>
+        <i class="glyphicon glyphicon-plus"></i><% end %></li>
+    <li><%= link_to mailbox_inbox_path, class: "btn btn-envelope" do %>
+        <i class="glyphicon glyphicon-envelope"></i><% end %></li>
+    <li class="dropdown" id="right-side">
+      <a href="#" class="dropdown-toggle btn btn-elipsis" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">•••</a>
+      <ul class="dropdown-menu" id="right-side">
+        <li><div class="row centered"><div id="text"><%= link_to "our team", our_team_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "terms", terms_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "privacy", privacy_path %></div></div></li>
+        <li><div class="row centered"><div id="text"><%= link_to "contact us", contact_path %></div></div></li>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+</div>
