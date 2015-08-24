@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   ]
 
   def home
-    @posts = Kaminari.paginate_array(Post.all.sort_by {|post| post.votecount }.reverse).page(params[:page]).per(15)
+    @posts = Kaminari.paginate_array(Post.all.sort_by {|post| post.votecount }.reverse).page(params[:page]).per(16)
     @recent = Post.order('created_at DESC').limit(4)
 
     respond_to do |format|

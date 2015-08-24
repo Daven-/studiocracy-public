@@ -1,6 +1,8 @@
 $("<%=j render(:partial => 'posts', :object => @posts) %>")
   .appendTo($("#content"));
 
+ReactRailsUJS.mountComponents();
+
 // Update pagination link
 <% if @posts.last_page? %>
   $('.pagination').html("No more posts! :(");
