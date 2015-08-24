@@ -1,6 +1,5 @@
-$pink: #e21760;
-$blue: #22adc2;
-$grey: #d1d1d1;
+$grey: #989898;
+$dark-grey: #444444;
 
 .search-group{
   height: 38px;
@@ -16,15 +15,13 @@ $grey: #d1d1d1;
   width: 238px;
 }
 
-.search-box{
-  border-top:0;
-  border-left: 0;
-  border-bottom:0;
-  border-right: 2px solid #cccccc;
-  padding:0 0 0 8px;
-  height:100%;
-  background-color: $blue;
+#search-box{
+  background-color: $dark-grey;
   color: $grey;
+}
+
+#search-button{
+  background-color: $dark-grey;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
