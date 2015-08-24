@@ -99,7 +99,8 @@ var VoteBox = React.createClass({
         //classNames addon for setting classes
         var upvoteClasses = classNames ({
             'upvote':this.state.hasUpvote,
-            'nullvote':!(this.state.hasUpvote)
+            'nullvote':!(this.state.hasUpvote),
+            'vote-icon':true
         });
 
         //Checks whether component has downvotes enabled
@@ -108,7 +109,8 @@ var VoteBox = React.createClass({
             //classNames addon for setting classes
             var downvoteClasses = classNames({
                 'downvote': this.state.hasDownvote,
-                'nullvote': !(this.state.hasDownvote)
+                'nullvote': !(this.state.hasDownvote),
+                'vote-icon': true
             });
 
             var downvoteButton =
@@ -141,7 +143,7 @@ var VoteBox = React.createClass({
                 <div className={upvoteClasses} onClick={this.toggleUpvote}>
                     ▲
                 </div>
-                <div className='num_votes'>
+                <div className='num-votes'>
                     {calculatedVoteCount}
                 </div>
                 {downvoteButton}

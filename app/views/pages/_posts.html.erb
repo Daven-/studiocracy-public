@@ -1,8 +1,8 @@
-<% @posts.in_groups_of(3, false).each do |group| %>
+<% @posts.in_groups_of(4, false).each do |group| %>
 
 <div class='row'>
   <% group.each do |post| %>
-  <div class='col-md-4 center content_box'>
+  <div class='col-md-3 center content_box'>
 
     <%= react_component 'MainPostBox',
                         {

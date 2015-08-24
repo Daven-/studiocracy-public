@@ -43,6 +43,7 @@ var MainPostBox = React.createClass({
         return (
             <div className="main-post-box" id={postboxID}>
                 < PostBoxImage
+                    className = 'post-box-image'
                     parentID = {this.props.parentID}
                     imageSource = {this.props.imageSource}
                     />

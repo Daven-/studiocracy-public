@@ -3,10 +3,12 @@ var UserBar = React.createClass({
         return (
             <div className="user-bar">
                 <img className="user-thumbnail" src={this.props.userThumbSrc}/>
-                <div className="user-name">
+                <span className="user-name">
                     {this.props.userName}
-                </div>
+                </span>
+                <span className='user-bar-arrow'>
                 >
+                </span>
             </div>
         );
     }
