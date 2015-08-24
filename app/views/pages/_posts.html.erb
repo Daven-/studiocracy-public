@@ -1,58 +1,37 @@
-<% @posts.in_groups_of(3, false).each do |group| %>
+<% @posts.in_groups_of(4, false).each do |group| %>
 
 <div class='row'>
   <% group.each do |post| %>
-  <div class='col-md-4 center content_box'>
-    <div class="post box" id="<%= post.id %>">
+  <div class='col-md-3 center content_box'>
 
-      <!-- Image -->
-      <div class='image_wrapper gallery_image'>
-        <%= image_tag(post.image.url(:large)) %>
-      </div>
+    <% user_path = (url_for user_path(post.user)) %>
 
-      <!-- Overlay -->
-      <div class="contenthover">
-          <!-- Title -->
-          <h3><%= link_to post.title, post_path(post), class: 'post_title' %></h3>
-          <!-- Creator -->
-          <%= link_to post.user.fullname, user_path(post.user), class: 'artist_name' %>
-          <br/><br/>
-                    <!-- Price -->
-          <%= number_to_currency(post.price, :unit => "$") %>
-      </div>
-      
-            <script>
-        $(".image_wrapper").contenthover({
-          overlay_background:'#000',
-          overlay_opacity:0.8
-        });
-      </script>
-      
+    <% if current_user
+        initialHasUpvote = (current_user.voted_up_on? post)
+        initialHasDownvote = (current_user.voted_down_on? post)
+       else
+        initialHasUpvote = false
+        initialHasDownvote = false
+       end %>
 
-      <!-- Post contents -->
-      <div class='content-text'>
+    <%= react_component 'MainPostBox',
+                        {
+                                parentID: post.id,
+                                imageSource: post.image.url(:large),
+                                postTitle: post.title,
+                                postPrice: number_to_currency(post.price, :unit => "$"),
+                                postCommentsCount: post.comment_threads.count.to_s,
+                                userThumbSrc: post.user.image.url(:large),
+                                userName: post.user.fullname,
+                                initialVoteCount:post.netvotes,
+                                initialHasUpvote:initialHasUpvote,
+                                initialHasDownvote:initialHasDownvote,
+                                hasDownvoteButton: false,
+                                votableType: "posts",
+                                userPath: user_path
+                        }
+    %>
 
-        <!-- Description -->
-        <!--
-        <% if post.content_md != nil %>
-        <div class='center'><%= sanitize(post.content_md) %></div>
-        <% end %>
-        -->
-        <!-- Comments -->
-        <div class='comments'>
-          <%= link_to image_tag('comments.png') + post.comment_threads.count.to_s, post, class: 'center' %>
-          </div>
-            <!-- Votes-->
-            <div class='votes'>
-              <%= post.netvotes %>
-              <% if current_user && (current_user.voted_up_on? post) %>
-                <%= link_to image_tag('upvote.png'), unlike_post_path(post), method: :put %>
-              <% else %>
-                <%= link_to image_tag('icons/grey_triangle.png'), like_post_path(post), method: :put %>
-              <% end %>
-            </div>
-        </div>
-    </div>
   </div>
   <% end %>
 </div>

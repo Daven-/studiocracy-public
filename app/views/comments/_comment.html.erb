@@ -6,7 +6,8 @@
     <% @netvotes = comment.netvotes %>
 
     <%= react_component 'VoteBox',
-                        {initialVoteCount: @netvotes,
+                        {
+                         initialVoteCount: @netvotes,
                          parentID: comment.id,
                          initialHasUpvote: (current_user.voted_up_on? comment),
                          initialHasDownvote: (current_user.voted_down_on? comment),
