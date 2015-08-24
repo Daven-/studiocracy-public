@@ -7,13 +7,12 @@ var PostBoxImage = React.createClass({
 
     render: function() {
         var imgID = "img-id-" + this.props.parentID;
-        var imgSrc= "/assets/"+ this.props.imageSource;
         var postPath= "/posts/"+ this.props.parentID;
 
         return (
             <div className="post-box-image">
                 <a href={postPath}>
-                    <img id={imgID} src={imgSrc}/>
+                    <img id={imgID} src={this.props.imageSource}/>
                 </a>
             </div>
         );

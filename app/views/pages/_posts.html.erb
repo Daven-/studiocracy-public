@@ -21,7 +21,7 @@
                                 postTitle: post.title,
                                 postPrice: number_to_currency(post.price, :unit => "$"),
                                 postCommentsCount: post.comment_threads.count.to_s,
-                                # userThumbSrc: post.user.image.url(:large)
+                                userThumbSrc: post.user.image.url(:large),
                                 userName: post.user.fullname,
                                 initialVoteCount:post.netvotes,
                                 initialHasUpvote:initialHasUpvote,

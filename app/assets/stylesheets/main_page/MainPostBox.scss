@@ -80,9 +80,14 @@
     .user-thumbnail, .user-name, .user-bar-arrow{
       display:inline;
     }
+    .user-thumbnail{
+      float:left;
+      height:29px;
+      padding: 0px 5px 0px 5px;
+    }
+
     .user-name{
       float: left;
-      padding-left: 10px;
     }
     .user-bar-arrow{
       float:right;
