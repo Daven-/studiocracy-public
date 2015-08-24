@@ -2,7 +2,7 @@
 @import "global_variables";
 
 .main-post-box {
-  height:370px;
+  height:390px;
   margin:5.0% auto 5.0% auto;
   overflow:hidden;
   color: $blue;
@@ -69,7 +69,7 @@
 
   .user-bar {
     font-size: 15px;
-    padding: 5px 0px 2px 0px;
+    padding: 6px 0px 2px 0px;
     .user-thumbnail, .user-name, .user-bar-arrow{
       display:inline;
     }

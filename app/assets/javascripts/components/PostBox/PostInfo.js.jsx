@@ -1,16 +1,17 @@
 var PostInfo = React.createClass({
     render: function() {
+        var postPath= "/posts/"+ this.props.parentID;
         return (
             <div className="post-info">
-                <div className="post-title">
+                <a className="post-title" href={postPath}>
                     {this.props.postTitle}
-                </div>
+                </a>
                 <div className="post-price">
                     {this.props.postPrice}
                 </div>
-                <div className="post-comments-count">
+                <a className="post-comments-count" href={postPath}>
                     {this.props.postCommentsCount} comments
-                </div>
+                </a>
             </div>
         );
     }

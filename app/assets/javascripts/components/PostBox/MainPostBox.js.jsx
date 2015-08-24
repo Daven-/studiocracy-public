@@ -16,6 +16,7 @@ var MainPostBox = React.createClass({
 
     propTypes: {
         parentID: React.PropTypes.number.isRequired,
+        userPath: React.PropTypes.string.isRequired,
 
         // PostBoxImage
         imageSource: React.PropTypes.string.isRequired,
@@ -59,10 +60,12 @@ var MainPostBox = React.createClass({
                     postTitle = {this.props.postTitle}
                     postPrice = {this.props.postPrice}
                     postCommentsCount = {this.props.postCommentsCount}
+                    parentID = {this.props.parentID}
                     />
                 < UserBar
                     userThumbSrc = {this.props.userThumbSrc}
                     userName = {this.props.userName}
+                    userPath= {this.props.userPath}
                     />
             </div>
         );
