@@ -4,6 +4,15 @@
 
 var VoteBox = React.createClass({
 
+    propTypes: {
+        initialVoteCount: React.PropTypes.number.isRequired,
+        initialHasUpvote: React.PropTypes.bool.isRequired,
+        initialHasDownvote: React.PropTypes.bool.isRequired,
+        votableType: React.PropTypes.string.isRequired,
+        parentID: React.PropTypes.number.isRequired,
+        hasDownvoteButton: React.PropTypes.bool
+    },
+
     //Set initial states from props
     getInitialState: function() {
         return {
@@ -90,40 +99,43 @@ var VoteBox = React.createClass({
         //classNames addon for setting classes
         var upvoteClasses = classNames ({
             'upvote':this.state.hasUpvote,
-            'nullvote':!(this.state.hasUpvote)
+            'nullvote':!(this.state.hasUpvote),
+            'vote-icon':true
         });
 
         //Checks whether component has downvotes enabled
         if (this.props.hasDownvoteButton) {
 
             //classNames addon for setting classes
-            var downvoteClasses = classNames ({
-                'downvote':this.state.hasDownvote,
-                'nullvote':!(this.state.hasDownvote)
+            var downvoteClasses = classNames({
+                'downvote': this.state.hasDownvote,
+                'nullvote': !(this.state.hasDownvote),
+                'vote-icon': true
             });
 
             var downvoteButton =
                 <div className={downvoteClasses} onClick={this.toggleDownvote}>
                     ▼
                 </div>;
+        }
 
-            //Recalculates votecount based on states
-            var calculatedVoteCount = this.props.initialVoteCount;
-            if (this.state.hasUpvote){
-                calculatedVoteCount += 1;
-            }
-            if (this.state.hasDownvote){
-                calculatedVoteCount -= 1;
-            }
+        var calculatedVoteCount = this.props.initialVoteCount;
 
-            //Need to adjust for any votes the user made when pages was loaded
-            //Otherwise upvotes will be double-counted
-            if (this.props.initialHasUpvote){
-                calculatedVoteCount -= 1;
-            }
-            if (this.props.initialHasDownvote){
-                calculatedVoteCount += 1;
-            }
+        //Recalculates votecount based on states
+        if (this.state.hasUpvote){
+            calculatedVoteCount += 1;
+        }
+        if (this.state.hasDownvote){
+            calculatedVoteCount -= 1;
+        }
+
+        //Need to adjust for any votes the user made when pages was loaded
+        //Otherwise upvotes will be double-counted
+        if (this.props.initialHasUpvote){
+            calculatedVoteCount -= 1;
+        }
+        if (this.props.initialHasDownvote){
+            calculatedVoteCount += 1;
         }
 
         return (
@@ -131,7 +143,7 @@ var VoteBox = React.createClass({
                 <div className={upvoteClasses} onClick={this.toggleUpvote}>
                     ▲
                 </div>
-                <div className='num_votes'>
+                <div className='num-votes'>
                     {calculatedVoteCount}
                 </div>
                 {downvoteButton}

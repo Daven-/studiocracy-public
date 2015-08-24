@@ -3,13 +3,13 @@ class PostsController < ApplicationController
 	def like
 		@post = Post.find(params[:id])
 		@post.liked_by current_user
-		redirect_to :back
+		render nothing: true
 	end
 
 	def unlike
 		@post = Post.find(params[:id])
 		@post.unliked_by current_user
-		redirect_to :back
+		render nothing: true
 	end
 
 	def show
