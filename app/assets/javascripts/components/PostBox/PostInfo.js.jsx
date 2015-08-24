@@ -4,12 +4,15 @@ var PostInfo = React.createClass({
         return (
             <div className="post-info">
                 <a className="post-title" href={postPath}>
-                    {this.props.postTitle}
+                    <i>
+                        {this.props.postTitle}
+                    </i>
                 </a>
                 <div className="post-price">
                     {this.props.postPrice}
                 </div>
                 <a className="post-comments-count" href={postPath}>
+                    <i className="fa fa-comment post-box-info-comment-icon"></i>
                     {this.props.postCommentsCount} comments
                 </a>
             </div>

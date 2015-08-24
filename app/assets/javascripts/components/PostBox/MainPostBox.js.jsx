@@ -40,6 +40,7 @@ var MainPostBox = React.createClass({
 
     render: function() {
         var postboxID = 'postbox-id-' + this.props.parentID;
+        console.log(this.props.userThumbSrc);
 
         return (
             <div className="main-post-box" id={postboxID}>

@@ -47,7 +47,6 @@
     .nullvote{
       color:#d1d1d1
     }
-
   }
 
   .post-info {
@@ -56,6 +55,7 @@
     color:black;
     .post-title{
       font-size: 16px;
+      color:black;
     }
     .post-price {
       font-size: 30px;
@@ -64,6 +64,13 @@
 
     .post-comments-count{
       font-size: 12px;
+      font-weight: 100;
+      color:black;
+    }
+
+    .post-box-info-comment-icon{
+      padding-right: 5px;
+      color:$blue;
     }
   }
 

@@ -6,6 +6,14 @@
 
     <% user_path = (url_for user_path(post.user)) %>
 
+    <% if current_user
+        initialHasUpvote = (current_user.voted_up_on? post)
+        initialHasDownvote = (current_user.voted_down_on? post)
+       else
+        initialHasUpvote = false
+        initialHasDownvote = false
+       end %>
+
     <%= react_component 'MainPostBox',
                         {
                                 parentID: post.id,
@@ -16,8 +24,8 @@
                                 # userThumbSrc: post.user.image.url(:large)
                                 userName: post.user.fullname,
                                 initialVoteCount:post.netvotes,
-                                initialHasUpvote:(current_user.voted_up_on? post),
-                                initialHasDownvote:(current_user.voted_down_on? post),
+                                initialHasUpvote:initialHasUpvote,
+                                initialHasDownvote:initialHasDownvote,
                                 hasDownvoteButton: false,
                                 votableType: "posts",
                                 userPath: user_path
