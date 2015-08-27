@@ -20,10 +20,6 @@ $dark-grey: #444444;
   color: $grey;
 }
 
-#search-button{
-  background-color: $dark-grey;
-}
-
 ::-webkit-input-placeholder { /* WebKit browsers */
   color:    $grey;
 }
@@ -40,13 +36,17 @@ $dark-grey: #444444;
 }
 
 .search-button{
-  background-color: $blue;
-  color: $grey;
+  color: $dark-grey;
   padding:0;
   border:0;
   width:33px;
-  height:22px;
+  height:38px;
+  background-color: $dark-grey;
   //height:100%;
+  button{
+    background-color: $dark-grey;
+    height: 38px;
+  }
 }
 
 .search-button img{
@@ -54,5 +54,5 @@ $dark-grey: #444444;
   padding: 1px 1px 1px 0px;
   overflow: visible;
   margin:auto;
-  margin-top:3px;
+  width: 59%;
 }
