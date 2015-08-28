@@ -18,7 +18,7 @@
 
     </div>
     <img src="images/icon-play32.png" style="margin-top: 30px;">
-    <p class="name-margin"><%= comment.user.fullname %></p>
+    <p class="comment-username"><%= comment.user.fullname %></p>
   </div>
 
   <!--/  <div class="col-sm-10 margin-top-5 text-right">
@@ -41,7 +41,7 @@
                 :id => comment.id, class: 'link-button'%>
   </div>
   <div class="col-sm-4 text-right">
-    <p align="bottom"> <!-- for when the other one is commented out -->
+    <p align="bottom" id="comment-date"> <!-- for when the other one is commented out -->
       <%= l(comment.created_at, format: '%B, %d %Y') %>
     </p>
   </div>

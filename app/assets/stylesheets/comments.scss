@@ -135,18 +135,19 @@ $pink-hover: #ef4d88;
 
 .line1 {
   border-bottom: 1px solid black;
-
 }
 
 #votesMargin{
   margin-left: -10px;
 }
 
-.name-margin{
-  margin-top: -25px;
+.comment-username{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28pt; // huge
+  margin-top: -45px;
   margin-left: 80px;
   color: $blue;
-  font-weight: 800;
+  font-weight: 600; // semibold
 }
 .margin-top-5 a{
   text-align: right;
@@ -164,12 +165,23 @@ $pink-hover: #ef4d88;
 }
 
 .body-text{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20pt;
   margin-left: 10px;
 }
 
 
 .link-button{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20pt;
+  font-weight: 800;
   color: $pink;
   margin-left:10px;
-  font-weight: 600;
+}
+
+#comment-date{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20pt;
+  font-weight: 800;
+  margin-right: 5%;
 }
