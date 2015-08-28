@@ -1,5 +1,6 @@
 $pink: #e21760;
 $blue: #22adc2;
+$font-open: 'Open Sans', sans-serif;
 
 .post-header h3, .post-header h4, .post-header a{
   color: $pink;
@@ -95,16 +96,26 @@ $blue: #22adc2;
   margin-top: 20px;
 }
 
-#comment-margin{
+#comment-h{
+  font-family: $font-open;
+  font-size: 32pt; // these are huge
   margin-left: 7%;
 }
-#sort-margin{
+#sort-by{
+  font-family: $font-open;
+  font-size: 32pt; // these are huge
   margin-right: 7%;
 }
 #submit-margin{
   margin-top: -9px;
 }
-#remaining{
-  font-size: small;
+#chars-remaining{
+  font-family: $font-open;
+  font-size: 14pt;
   margin-left: 1%;
+}
+
+#comment-body{
+  font-family: $font-open;
+  font-size: 20pt;
 }
