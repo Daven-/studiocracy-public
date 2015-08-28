@@ -1,6 +1,7 @@
 <div class="contain-margins comment" id="<%= comment.id %>">
 
   <div class="col-sm-12">
+<<<<<<< HEAD
   <div class='votes' id="votesMargin">
 
     <% @netvotes = comment.netvotes %>
@@ -19,33 +20,58 @@
     </div>
     <img src="images/icon-play32.png" style="margin-top: 30px;">
     <p class="comment-username"><%= comment.user.fullname %></p>
+=======
+    <div class='votes' id="votesMargin">
+      <% if current_user.voted_up_on? comment %>
+          <%= link_to '▲', unlike_comment_path(comment), :class => 'upvote', :id => "upvote-#{comment.id}", :method => :put %>
+          <div class='num_votes'><%= comment.netvotes %></div>
+          <%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
+      <% elsif current_user.voted_down_on? comment %>
+          <%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
+          <div class='num_votes'><%= comment.netvotes %></div>
+          <%= link_to '▼', undislike_comment_path(comment), :class => 'downvote', :id => "downvote-#{comment.id}", :method => :put %>
+      <% else %>
+          <%= link_to '▲', like_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
+          <div class='num_votes'><%= comment.netvotes %></div>
+          <%= link_to '▼', dislike_comment_path(comment), :class => 'nullvote', :id => "nullvote-#{comment.id}", :method => :put %>
+      <% end %>
+    </div>
+    <img src="http://flightdiary.net/img/facebook-profile.png" class="img-circle img-comment">
+
+    <p class="name-margin"><%= comment.user.fullname %></p>
+>>>>>>> FETCH_HEAD
   </div>
 
   <!--/  <div class="col-sm-10 margin-top-5 text-right">
 <#%= link_to "x", comment_path(comment), :method => :delete, data: { :confirm => "Are you sure you want to remove this comment?" } %>
 </div>   -->
-  <!--/ looks like delete functionis not in the final design-->
+  <!--/ looks like delete function is not in the final design-->
 
   <div class="col-sm-12">
-    <p class="body-text"><%= comment.body %></p>
+    <div class="container-fluid">
+    <p ><%= comment.body %></p>
+    </div>
   </div>
 
   <!--reply-->
     <span>
-  <div class="col-sm-8">
-    <button class='reply-button' id='<% comment.id %>-reply'>reply</button>
+  <div class="col-sm-6">
     <!--/ delete button when ready link_to will handle reply and share-->
-    <%= link_to 'reply', '#',
-                :id => comment.id, class: 'link-button'%>
-    <%= link_to 'share', '#',
-                :id => comment.id, class: 'link-button'%>
+    <button class='reply-button' id='
+      <% comment.id %>-reply'>reply
+    </button>
+    <%# comments_id = comment.id.to_s + '-reply' %>
+    <!--/can't seem to make it work, still iffy on rails-->
+    <%# link_to 'reply', '', :id => comments_id, class: 'link-button', :onclick => "alert('hello')" %>
+    <%= link_to 'share', '#', :id => comment.id, class: 'link-button' %>
   </div>
-  <div class="col-sm-4 text-right">
-    <p align="bottom" id="comment-date"> <!-- for when the other one is commented out -->
-      <%= l(comment.created_at, format: '%B, %d %Y') %>
-    </p>
-  </div>
-        </span>
+      
+    <div class="col-sm-6">
+      <p align="right" id="comment-date"> <!-- for when the other one is commented out -->
+        <%= l(comment.created_at, format: '%B, %d %Y') %>
+      </p>
+    </div>
+    </span>
   <!--/ end of reply and date of comment-->
 
 
